@@ -1,0 +1,4 @@
+interface:
+  display_name: "Core Architect"
+  short_description: "Enforce Python layered architecture rules"
+  default_prompt: "Use $core-architect to implement Python code with services, controllers, type hints, logging, and fallbacks."
