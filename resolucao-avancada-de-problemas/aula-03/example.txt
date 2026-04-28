@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "C:\Users\joao\growdev\formacao-dev-elite\resolucao-avancada-de-problemas\aula-03\app\main.py", line 42, in <module>
+    run_pipeline()
+  File "C:\Users\joao\growdev\formacao-dev-elite\resolucao-avancada-de-problemas\aula-03\app\main.py", line 38, in run_pipeline
+    result = ingest_service.process_batch(batch_id)
+  File "C:\Users\joao\growdev\formacao-dev-elite\resolucao-avancada-de-problemas\aula-03\app\services\ingest.py", line 91, in process_batch
+    normalized = normalize_records(raw_rows)
+  File "C:\Users\joao\growdev\formacao-dev-elite\resolucao-avancada-de-problemas\aula-03\app\services\ingest.py", line 55, in normalize_records
+    return [mapper.to_domain(row) for row in raw_rows]
+  File "C:\Users\joao\growdev\formacao-dev-elite\resolucao-avancada-de-problemas\aula-03\app\services\ingest.py", line 55, in <listcomp>
+    return [mapper.to_domain(row) for row in raw_rows]
+  File "C:\Users\joao\growdev\formacao-dev-elite\resolucao-avancada-de-problemas\aula-03\app\domain\mapper.py", line 19, in to_domain
+    external_id = row["metadata"]["source"]["id"]
+KeyError: 'id'
