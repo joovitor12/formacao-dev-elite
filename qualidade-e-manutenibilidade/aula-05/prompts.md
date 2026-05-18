@@ -105,19 +105,6 @@ Como decidir se paro agora e abro PR, ou continuo na mesma branch?
 Responda com critérios objetivos (tamanho do diff, escopo do card, risco acumulado).
 ```
 
----
-
-## 7. Prompt curto para gravação
-
-```
-@pre-changes/estoque_service.py
-
-Qual o menor próximo incremento de refatoração que ainda vale a pena,
-mantendo registrar_movimento e os testes atuais? Só um passo — sem refatorar o arquivo inteiro.
-```
-
----
-
 ## Comandos úteis
 
 ```bash
