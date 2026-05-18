@@ -1,0 +1,83 @@
+[
+  {
+    "id": "basico_um_mes",
+    "saida": {
+      "ok": true,
+      "avisos": [],
+      "total": 29.9,
+      "plano": "basico",
+      "meses": 1
+    }
+  },
+  {
+    "id": "pro_anual",
+    "saida": {
+      "ok": true,
+      "avisos": [
+        "desconto anual aplicado"
+      ],
+      "total": 610.98,
+      "plano": "pro",
+      "meses": 12
+    }
+  },
+  {
+    "id": "enterprise_com_backup",
+    "saida": {
+      "ok": true,
+      "avisos": [],
+      "total": 1229.4,
+      "plano": "enterprise",
+      "meses": 6
+    }
+  },
+  {
+    "id": "basico_anual_cupom",
+    "saida": {
+      "ok": true,
+      "avisos": [
+        "desconto anual aplicado",
+        "cupom aplicado"
+      ],
+      "total": 274.48,
+      "plano": "basico",
+      "meses": 12
+    }
+  },
+  {
+    "id": "plano_invalido",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "plano invalido"
+      ]
+    }
+  },
+  {
+    "id": "meses_zero",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "meses invalido"
+      ]
+    }
+  },
+  {
+    "id": "addon_invalido",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "addon invalido: vpn"
+      ]
+    }
+  },
+  {
+    "id": "cupom_invalido",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "cupom invalido"
+      ]
+    }
+  }
+]
