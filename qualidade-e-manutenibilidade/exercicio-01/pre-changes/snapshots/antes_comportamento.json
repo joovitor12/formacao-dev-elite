@@ -1,0 +1,93 @@
+[
+  {
+    "id": "varejo_simples",
+    "saida": {
+      "ok": true,
+      "avisos": [],
+      "fulfillment_id": "FUL-00001",
+      "subtotal": 60.0,
+      "taxa_marketplace": 0.0,
+      "desconto": 0.0,
+      "total": 60.0
+    }
+  },
+  {
+    "id": "marketplace_taxa",
+    "saida": {
+      "ok": true,
+      "avisos": [
+        "taxa marketplace aplicada"
+      ],
+      "fulfillment_id": "FUL-00001",
+      "subtotal": 100.0,
+      "taxa_marketplace": 3.0,
+      "desconto": 0.0,
+      "total": 103.0
+    }
+  },
+  {
+    "id": "varejo_cupom_econ10",
+    "saida": {
+      "ok": true,
+      "avisos": [
+        "cupom economico aplicado"
+      ],
+      "fulfillment_id": "FUL-00001",
+      "subtotal": 100.0,
+      "taxa_marketplace": 0.0,
+      "desconto": 10.0,
+      "total": 90.0
+    }
+  },
+  {
+    "id": "marketplace_cupom",
+    "saida": {
+      "ok": true,
+      "avisos": [
+        "taxa marketplace aplicada",
+        "cupom economico aplicado"
+      ],
+      "fulfillment_id": "FUL-00001",
+      "subtotal": 200.0,
+      "taxa_marketplace": 6.0,
+      "desconto": 20.6,
+      "total": 185.4
+    }
+  },
+  {
+    "id": "estoque_insuficiente",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "estoque insuficiente para SKU-C"
+      ]
+    }
+  },
+  {
+    "id": "cliente_vazio",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "cliente obrigatorio"
+      ]
+    }
+  },
+  {
+    "id": "canal_invalido",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "canal invalido"
+      ]
+    }
+  },
+  {
+    "id": "cupom_invalido",
+    "saida": {
+      "ok": false,
+      "avisos": [
+        "cupom invalido"
+      ]
+    }
+  }
+]
