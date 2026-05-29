@@ -130,18 +130,6 @@ Proponha asserts concretos para o mesmo cenário.
 Não implemente ainda.
 ```
 
----
-
-## 7. Prompt curto para gravação
-
-```
-@guia_geracao_testes_ia.md
-
-Em uma frase: como usar IA + cobertura sem transformar teste em checklist de linha vermelha?
-```
-
----
-
 ## Comandos úteis
 
 **Facilitador (raiz):**
