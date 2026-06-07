@@ -1,6 +1,6 @@
 # Matriz — O que a IA costuma avaliar em PRs
 
-Use para **classificar** cada comentário do Copilot Code Review (aula 02).
+Use para **classificar** cada comentário do Copilot Code Review.
 
 | Dimensão | O que a IA costuma pegar | O que costuma escapar |
 |----------|--------------------------|------------------------|
@@ -11,16 +11,8 @@ Use para **classificar** cada comentário do Copilot Code Review (aula 02).
 | **Testes** | Teste ausente em mudança “óbvia” | Teste verde mas assert fraco |
 | **Escopo** | Arquivo não relacionado no PR | Feature creep “aceitável” no diff |
 
-## Perguntas desta aula (não da aula 01)
+## Perguntas de reflexão
 
 1. Em qual **dimensão** o Copilot comentou cada achado?
 2. Qual achado **humano** importante ficou **sem** comentário da IA?
 3. O comentário da IA é **correção**, **sugestão de estilo** ou **falso positivo**?
-
-## Diferença em relação à aula 01
-
-| Aula 01 | Aula 02 |
-|---------|---------|
-| **Papel** do review (quem decide o merge) | **Conteúdo** da avaliação (o que entra no radar da IA) |
-| Veredito e responsabilidade humana | Taxonomia e pontos cegos |
-| Inventário geral de smells | Classificação dos achados do Copilot |

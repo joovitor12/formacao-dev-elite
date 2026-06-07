@@ -2,8 +2,6 @@
 
 **Objetivo:** mapear **o que o Copilot Code Review costuma avaliar** (e o que escapa) — classificar achados por dimensão e identificar pontos cegos.
 
-**Diferença da aula 01:** lá o foco é **papel e veredito humano**; aqui o foco é **taxonomia da avaliação automática**.
-
 **Ferramenta:** GitHub (PR + Copilot Code Review).
 
 **Material:**
@@ -17,7 +15,7 @@
 
 **Fluxo em sala:**
 
-1. Abrir PR alterando `rollback_service.py` (não reutilize o PR da aula 01).
+1. Abrir PR alterando `rollback_service.py`.
 2. Rodar Copilot Code Review.
 3. Classificar **cada** comentário na matriz.
 4. Preencher **pontos cegos** (o que a IA não disse e você diria).
@@ -95,12 +93,14 @@ Justifique com base na matriz — não no gosto pessoal de estilo.
 
 ---
 
-## 6. Comparar com a aula 01
+## 6. Síntese da taxonomia
 
 ```
-Em 4 bullets: o que esta aula mede que a aula 01 (papel do review) **não** cobre?
+@classificacao_review.md @matriz_avaliacao_ia.md
 
-Sem repetir "humano decide o merge" — isso já é aula 01.
+Em 4 bullets: o que você aprendeu sobre **limites** da avaliação automática em PRs?
+
+Inclua: dimensão mais coberta, dimensão negligenciada, um falso positivo e um ponto cego humano.
 ```
 
 ## Comandos úteis
