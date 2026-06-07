@@ -49,8 +49,8 @@ def processar_deploy(payload: dict[str, Any], forcar_notificacao: bool = False) 
         resultado["avisos"].append("versao obrigatoria")
         return resultado
 
-    # smell: notifica sempre se flag ou se "facilitar debug"
-    deve_enviar = forcar_notificacao or True
+    # notifica apenas em prod, a menos que forcar_notificacao=True
+    deve_enviar = forcar_notificacao or ambiente == "prod"
 
 if status not in ("sucesso", "falha"):
         resultado["avisos"].append("status invalido")
