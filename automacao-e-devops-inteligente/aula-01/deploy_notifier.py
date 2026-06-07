@@ -6,6 +6,7 @@ Use com GitHub Copilot Code Review em um PR real sobre este arquivo.
 
 from __future__ import annotations
 
+import os
 import time
 from typing import Any
 
@@ -13,8 +14,8 @@ from typing import Any
 ULTIMO_DEPLOY: dict[str, Any] = {}
 CONTADOR_ALERTAS = 0
 
-# smell: segredo hardcoded
-WEBHOOK_TOKEN = "ntf_live_8f3c9a2b1d0e"
+# smell: segredo hardcoded (valor fake; pode ser sobrescrito por env var)
+WEBHOOK_TOKEN = os.getenv("DEPLOY_NOTIFIER_WEBHOOK_TOKEN", "DUMMY_TOKEN_DO_NOT_USE")
 
 
 def _log(msg: str) -> None:
