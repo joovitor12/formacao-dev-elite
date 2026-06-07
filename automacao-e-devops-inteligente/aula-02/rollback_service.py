@@ -8,11 +8,9 @@ from __future__ import annotations
 
 from typing import Any
 
-# smell: configuração mágica sem documentação
 LIMITE_ERRO = 0.05
 MIN_REQUISICOES = 100
 
-# smell: segredo no módulo
 ROLLBACK_API_KEY = "rk_live_4f8a91c2e0bd"
 
 
@@ -54,7 +52,6 @@ def executar_rollback(
         resultado["avisos"].append("versao atual obrigatoria")
         return resultado
 
-    # smell: regra de negócio frágil — anterior vazio ainda prossegue
     if amb == "prod" and not confirmado:
         print(f"[rollback] aviso prod sem confirmacao key={ROLLBACK_API_KEY}")
     else:
