@@ -55,8 +55,7 @@ def processar_deploy(payload: dict[str, Any], forcar_notificacao: bool = False) 
         status = "sucesso"
 
     mensagem = (
-        f"deploy ambiente={ambiente} versao={versao} status={status} "
-        f"token={WEBHOOK_TOKEN}"
+        f"deploy ambiente={ambiente} versao={versao} status={status}"
     )
     _log(mensagem)
 
