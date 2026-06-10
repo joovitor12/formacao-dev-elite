@@ -8,16 +8,17 @@
 
 | Arquivo | Papel |
 | -------- | ------ |
-| `release_gate.py` | Código simples com achados que disparam comentários de bots diferentes. |
+| `release_gate.py` | **Baseline limpa** na branch principal; o diff do PR traz os achados. |
 | `inventario_comentarios.md` | Planilha para catalogar e priorizar cada comentário automático. |
-| `example.py` | Executar comportamento atual do gate. |
+| `example.py` | Executar o gate antes e depois do PR (opcional). |
 
 **Fluxo em sala:**
 
-1. Abrir PR alterando `release_gate.py`.
-2. Coletar **todos** os comentários automáticos (não só o Copilot).
-3. Preencher `inventario_comentarios.md` com fonte, tipo e ação.
-4. Discutir: o que corrigir, o que dismiss e o que virar comentário humano ao autor.
+1. Manter `release_gate.py` **limpo** na branch principal (`main` / `master`).
+2. Criar branch (ex.: `feat/release-gate-review`) e aplicar as mudanças da seção 2.
+3. Abrir PR da branch → principal.
+4. Coletar **todos** os comentários automáticos (não só o Copilot).
+5. Preencher `inventario_comentarios.md` e discutir triagem.
 
 ---
 
@@ -34,10 +35,34 @@ Não analise release_gate.py ainda.
 
 ---
 
-## 2. Coletar comentários do PR
+## 2. Preparar o diff do PR (na branch)
+
+Na branch do PR, altere `release_gate.py` introduzindo **vários** achados para bots diferentes comentarem, por exemplo:
+
+- constante `GATE_API_TOKEN` hardcoded e citada em log;
+- parâmetro `forcar_aprovacao` com `forcar_aprovacao or True` (sempre aprova);
+- variável `unused_metric` não usada;
+- constante `TIMEOUT_MS` declarada e não usada;
+- `except Exception: pass` engolindo erro;
+- trocar `score >= SCORE_MINIMO` por `score > SCORE_MINIMO` (fronteira 0,85);
+- estado global `_validacoes_executadas` + função `consultar_validacoes()`.
+
+Peça à IA só o patch desta branch — **não** altere a baseline da principal.
 
 ```
-Abri um PR sobre release_gate.py.
+@release_gate.py
+
+Gere o diff para a branch do PR com os achados acima, mantendo o arquivo executável.
+
+Não abra o PR ainda.
+```
+
+---
+
+## 3. Coletar comentários do PR
+
+```
+Abri o PR da branch para a principal.
 
 Cole aqui cada comentário automático (Copilot, Action, linter, SAST — todos).
 
@@ -48,7 +73,7 @@ Não classifique ainda.
 
 ---
 
-## 3. Triagem no inventário
+## 4. Triagem no inventário
 
 ```
 @inventario_comentarios.md
@@ -65,7 +90,7 @@ Não implemente correções no código.
 
 ---
 
-## 4. Sinal vs ruído
+## 5. Sinal vs ruído
 
 ```
 @inventario_comentarios.md
@@ -80,7 +105,7 @@ Formato: comentário automático original → risco → texto humano sugerido.
 
 ---
 
-## 5. Duplicação entre bots
+## 6. Duplicação entre bots
 
 ```
 No mesmo PR, dois bots comentaram o mesmo smell (ex.: segredo em log).
@@ -92,7 +117,7 @@ Resposta em bullets — política de triagem, sem código.
 
 ---
 
-## 6. Síntese da triagem
+## 7. Síntese da triagem
 
 ```
 @inventario_comentarios.md
