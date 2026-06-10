@@ -4,12 +4,13 @@ Deploy canário — mudanças para review de riscos em PR.
 
 from __future__ import annotations
 
+import os
 from typing import Any
 
 CANARY_PERCENTUAL_PADRAO = 10
 LIMITE_ERRO_ABORTAR = 0.05
 
-CANARY_API_KEY = "cny_live_9a3e71b2f0cc"
+CANARY_API_KEY = os.getenv("CANARY_API_KEY", "")
 
 CANARY_ATIVO: dict[str, bool] = {}
 
