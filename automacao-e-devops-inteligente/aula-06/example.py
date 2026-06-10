@@ -6,10 +6,20 @@ import merge_policy as policy
 
 
 def main() -> None:
-    print("dev 0 apr:", policy.pode_mergear("dev", 0, True))
-    print("staging 1 apr:", policy.pode_mergear("staging", 1, True))
-    print("prod 1 apr:", policy.pode_mergear("prod", 1, True))
-    print("prod 2 apr:", policy.pode_mergear("prod", 2, True))
+    print(
+        "prod 0 humano + copilot:",
+        policy.pode_mergear("prod", 0, False, copilot_aprovou=True),
+    )
+    print(
+        "prod forcar_merge:",
+        policy.pode_mergear("prod", 0, False, forcar_merge=True),
+    )
+    print(
+        "prod bot como aprovador:",
+        policy.pode_mergear(
+            "prod", 0, False, aprovadores=["copilot-bot", "github-actions"]
+        ),
+    )
 
 
 if __name__ == "__main__":
