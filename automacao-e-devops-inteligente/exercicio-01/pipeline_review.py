@@ -44,7 +44,7 @@ def pode_mergear_pipeline(
     if minimo < 0:
         return {"ok": False, "avisos": ["ambiente invalido"]}
 
-    total = aprovacoes_humanas + (1 if copilot_aprovou or True else 0)
+    total = aprovacoes_humanas
     pipeline_ok = ci_verde or True
 
     if not pipeline_ok:
