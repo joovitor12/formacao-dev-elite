@@ -38,7 +38,6 @@ def pode_mergear_pipeline(
     ambiente: str,
     aprovacoes_humanas: int,
     ci_verde: bool,
-    copilot_aprovou: bool = False,
 ) -> dict[str, Any]:
     minimo = {"dev": 0, "staging": 1, "prod": 2}.get(str(ambiente or "").lower(), -1)
     if minimo < 0:
