@@ -1,0 +1,10 @@
+__pycache__
+*.py[cod]
+.venv
+.env
+.git
+pre-changes/
+prompts.md
+mapa_estrutura_dockerfile.md
+example.py
+*.md
