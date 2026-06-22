@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.git/
+pre-changes/
+*.md
+example.py
+prompts.md
+plano_otimizacao_imagem.md

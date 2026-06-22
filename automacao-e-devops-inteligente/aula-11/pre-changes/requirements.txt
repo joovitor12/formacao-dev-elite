@@ -1,0 +1,1 @@
+# stdlib only — pip install no builder existe para exercitar camadas de deps.
