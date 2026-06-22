@@ -1,0 +1,17 @@
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.git
+.gitignore
+.env
+.env.*
+*.md
+pre-changes/
+example.py
+prompts.md
+verificar_entrega.py
+verificar_checklist.py
+dossie_container_integrado.md
+Dockerfile
+.dockerignore
