@@ -1,0 +1,15 @@
+__pycache__
+*.pyc
+*.pyo
+.pytest_cache
+.git
+.gitignore
+.env
+.env.*
+*.md
+pre-changes/
+example.py
+prompts.md
+matriz_seguranca_boas_praticas.md
+Dockerfile
+.dockerignore
