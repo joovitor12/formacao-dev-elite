@@ -1,0 +1,18 @@
+# Smoke test e documentação — não entram na imagem
+example.py
+*.md
+
+# Artefatos Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+
+# Baseline / material da aula
+pre-changes/
+
+# Git e IDE
+.git/
+.gitignore
+.vscode/
+.idea/

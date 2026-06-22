@@ -1,0 +1,22 @@
+FROM python:3.12.8-slim
+
+WORKDIR /app
+
+RUN addgroup --system app && adduser --system --group app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY --chown=app:app metrics_exporter.py .
+
+# App e HEALTHCHECK leem PORT (default 8080; sobrescreva com -e PORT=... no run).
+ENV PORT=8080
+
+USER app
+
+EXPOSE 8080
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+    CMD ["python", "-c", "import os, urllib.request; p=os.environ.get('PORT', '8080'); r=urllib.request.urlopen(f'http://127.0.0.1:{p}/health', timeout=2); exit(0 if r.read() == b'ok' else 1)"]
+
+CMD ["python", "metrics_exporter.py"]
