@@ -1,0 +1,10 @@
+__pycache__
+*.py[cod]
+.venv
+.env
+.git
+pre-changes/
+prompts.md
+mapa_multistage_build.md
+example.py
+*.md

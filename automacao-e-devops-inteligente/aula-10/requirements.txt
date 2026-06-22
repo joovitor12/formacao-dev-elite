@@ -1,0 +1,1 @@
+# metrics_exporter usa stdlib — pip install mantido para camada de deps no stage builder.
