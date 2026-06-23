@@ -1,0 +1,80 @@
+{
+  "guideline_evaluations_3.3.2": [
+    {
+      "id": "a104723470258732ae036a346862d963",
+      "creation_utc": "2026-06-23T11:54:17.957486+00:00",
+      "version": "3.3.2",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "b278a14e56f87171da6150265837c762",
+      "creation_utc": "2026-06-23T11:54:18.465282+00:00",
+      "version": "3.3.2",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": "You are likely to not be sure of the answer or lack reliable information",
+        "internal_action": null
+      }
+    },
+    {
+      "id": "314419e1b28f4fcacecee814e7ce32f4",
+      "creation_utc": "2026-06-23T11:54:24.025360+00:00",
+      "version": "3.3.2",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "8baadb87d0b2e6b817cbd6296a3f6b01",
+      "creation_utc": "2026-06-23T11:55:06.482438+00:00",
+      "version": "3.3.2",
+      "properties": {
+        "continuous": true,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": true,
+          "customer_action": "The customer requests more details",
+          "agent_action": "The agent uses clear and objective Portuguese, and prefers short answers unless the customer requests more details"
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    },
+    {
+      "id": "968f92e1a3775df3c839079ccf2e09d3",
+      "creation_utc": "2026-06-23T12:20:49.454782+00:00",
+      "version": "3.3.2",
+      "properties": {
+        "continuous": false,
+        "customer_dependent_action_data": {
+          "is_customer_dependent": false,
+          "customer_action": "",
+          "agent_action": ""
+        },
+        "agent_intention_condition": null,
+        "internal_action": null
+      }
+    }
+  ],
+  "journey_evaluations_3.3.2": []
+}
