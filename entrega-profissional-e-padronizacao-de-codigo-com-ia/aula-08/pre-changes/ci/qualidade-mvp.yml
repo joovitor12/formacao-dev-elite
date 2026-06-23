@@ -1,0 +1,34 @@
+# Workflow de qualidade — template para GitHub Actions
+#
+# Copie para `.github/workflows/qualidade-mvp-chatbot.yml` na raiz do repositório
+# ou ajuste `paths` / `working-directory` conforme o monorepo.
+
+name: MVP Chatbot — qualidade
+
+on:
+  push:
+    paths:
+      - "entrega-profissional-e-padronizacao-de-codigo-com-ia/aula-08/**"
+  pull_request:
+    paths:
+      - "entrega-profissional-e-padronizacao-de-codigo-com-ia/aula-08/**"
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: entrega-profissional-e-padronizacao-de-codigo-com-ia/aula-08
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências de desenvolvimento
+        run: pip install -r requirements-dev.txt
+
+      # TODO: substituir smoke isolado por python verificar_pipeline.py
+      - name: Smoke (baseline)
+        run: python example.py

@@ -1,0 +1,29 @@
+# Segredos e ambiente local — injetar em runtime (--env-file)
+.env
+.env.*
+!.env.example
+
+# Git e caches
+.git
+.gitignore
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Dev, testes e CI (não necessários na imagem)
+tests/
+ci/
+pre-changes/
+requirements-dev.txt
+pyproject.toml
+verificar_pipeline.py
+verificar_arquitetura.py
+example.py
+
+# Documentação (exceto visao_geral_projeto.md — copiado explicitamente no Dockerfile)
+*.md
+!visao_geral_projeto.md
+
+# Dados locais do Parlant
+parlant-data/
