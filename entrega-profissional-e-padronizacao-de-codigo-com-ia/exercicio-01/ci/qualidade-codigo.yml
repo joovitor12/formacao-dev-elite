@@ -1,0 +1,33 @@
+# Workflow de qualidade — template para GitHub Actions
+#
+# Copie para `.github/workflows/qualidade-codigo-entrega.yml` na raiz do repositório
+# ou ajuste `paths` / `working-directory` conforme seu monorepo.
+
+name: Qualidade de código — entrega integrada
+
+on:
+  push:
+    paths:
+      - "entrega-profissional-e-padronizacao-de-codigo-com-ia/exercicio-01/**"
+  pull_request:
+    paths:
+      - "entrega-profissional-e-padronizacao-de-codigo-com-ia/exercicio-01/**"
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: entrega-profissional-e-padronizacao-de-codigo-com-ia/exercicio-01
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Instalar dependências de desenvolvimento
+        run: pip install -r requirements-dev.txt
+
+      - name: Portão de qualidade (lint, format, smoke)
+        run: python verificar_pipeline.py

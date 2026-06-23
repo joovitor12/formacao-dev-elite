@@ -1,0 +1,30 @@
+# Workflow de qualidade — template para GitHub Actions
+#
+# Copie para `.github/workflows/qualidade-codigo-entrega.yml` na raiz do repositório
+# ou ajuste `paths` / `working-directory` conforme seu monorepo.
+#
+# Baseline propositalmente incompleto: falta lint, format e verificar_pipeline.py.
+
+name: Qualidade de código — entrega integrada
+
+on:
+  push:
+    paths:
+      - "entrega-profissional-e-padronizacao-de-codigo-com-ia/exercicio-01/**"
+  pull_request:
+    paths:
+      - "entrega-profissional-e-padronizacao-de-codigo-com-ia/exercicio-01/**"
+
+jobs:
+  qualidade:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Smoke test
+        run: python example.py
+        working-directory: entrega-profissional-e-padronizacao-de-codigo-com-ia/exercicio-01/pre-changes
