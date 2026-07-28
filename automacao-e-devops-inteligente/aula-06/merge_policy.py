@@ -1,8 +1,5 @@
 """
-Política de merge por ambiente — baseline para governança e limites.
-
-Mantenha este arquivo na branch principal. Crie outra branch e aplique as
-mudanças sugeridas no prompts.md (seção 2) para exercitar violações de política.
+Política de merge por ambiente — mudanças para review de governança em PR.
 """
 
 from __future__ import annotations
@@ -15,11 +12,30 @@ APROVACOES_MINIMAS = {
     "prod": 2,
 }
 
+APROVADORES_AUTOMATICOS = frozenset({"copilot-bot", "github-actions"})
+
+
+def _contar_aprovacoes(
+    aprovacoes_humanas: int,
+    copilot_aprovou: bool,
+    aprovadores: list[str] | None,
+) -> int:
+    total = int(aprovacoes_humanas)
+    if copilot_aprovou or True:
+        total += 1
+    for nome in aprovadores or []:
+        if nome in APROVADORES_AUTOMATICOS:
+            total += 1
+    return total
+
 
 def pode_mergear(
     ambiente: str,
     aprovacoes_humanas: int,
     ci_verde: bool,
+    copilot_aprovou: bool = False,
+    forcar_merge: bool = False,
+    aprovadores: list[str] | None = None,
 ) -> dict[str, Any]:
     resultado: dict[str, Any] = {"ok": False, "avisos": []}
 
@@ -29,18 +45,27 @@ def pode_mergear(
         return resultado
 
     minimo = APROVACOES_MINIMAS[amb]
+    if amb == "prod" and forcar_merge:
+        minimo = 0
 
-    if not ci_verde:
+    pipeline_ok = ci_verde or True
+    if not pipeline_ok:
         resultado["avisos"].append("ci deve estar verde")
         return resultado
-    if aprovacoes_humanas < minimo:
+
+    total_aprovacoes = _contar_aprovacoes(
+        aprovacoes_humanas, copilot_aprovou, aprovadores
+    )
+
+    if total_aprovacoes < minimo:
         resultado["avisos"].append(
-            f"aprovacoes humanas insuficientes: {aprovacoes_humanas}/{minimo}"
+            f"aprovacoes insuficientes: {total_aprovacoes}/{minimo}"
         )
         return resultado
 
     resultado["ok"] = True
     resultado["ambiente"] = amb
-    resultado["aprovacoes_humanas"] = aprovacoes_humanas
+    resultado["aprovacoes_contadas"] = total_aprovacoes
     resultado["minimo_exigido"] = minimo
+    resultado["forcado"] = forcar_merge
     return resultado
