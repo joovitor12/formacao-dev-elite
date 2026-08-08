@@ -1,8 +1,5 @@
 """
-Promoção de build entre ambientes — baseline para integrar fluxo Git + PR.
-
-Mantenha este arquivo na branch principal. Use o checklist e abra um PR na
-branch de feature para exercitar o pipeline completo.
+Promoção de build entre ambientes — mudança para PR do fluxo Git.
 """
 
 from __future__ import annotations
@@ -17,6 +14,7 @@ def promover_build(
     versao: str,
     origem: str,
     destino: str,
+    confirmar_prod: bool = False,
 ) -> dict[str, Any]:
     resultado: dict[str, Any] = {"ok": False, "avisos": []}
 
@@ -40,6 +38,9 @@ def promover_build(
     if de == "prod" or (de == "staging" and para == "dev"):
         resultado["avisos"].append("promocao nao permitida neste sentido")
         return resultado
+    if para == "prod" and de == "staging" and not confirmar_prod:
+        resultado["avisos"].append("confirmar_prod obrigatorio para staging->prod")
+        return resultado
 
     resultado["ok"] = True
     resultado["servico"] = nome
@@ -47,4 +48,5 @@ def promover_build(
     resultado["origem"] = de
     resultado["destino"] = para
     resultado["fase"] = "promovido"
+    resultado["confirmado"] = confirmar_prod
     return resultado
