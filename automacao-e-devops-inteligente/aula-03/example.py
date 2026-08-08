@@ -6,14 +6,11 @@ import release_gate as gate
 
 
 def main() -> None:
-    aprovado = gate.avaliar_release(
+    out = gate.avaliar_release(
         {"servico": "checkout-api", "versao": "3.4.2", "score": 0.90}
     )
-    reprovado = gate.avaliar_release(
-        {"servico": "checkout-api", "versao": "3.4.1", "score": 0.80}
-    )
-    print("aprovado:", aprovado)
-    print("reprovado:", reprovado)
+    print(out)
+    print("validacoes:", gate.consultar_validacoes())
 
 
 if __name__ == "__main__":
