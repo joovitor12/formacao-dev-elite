@@ -2,7 +2,12 @@
 
 from __future__ import annotations
 
+import logging
+import os
+
 import rollback_service as rollback
+
+logging.basicConfig(level=logging.INFO)
 
 
 def main() -> None:
@@ -14,6 +19,18 @@ def main() -> None:
     print(
         rollback.executar_rollback(
             "prod", "2.0.1", "2.0.0", confirmado=False
+        )
+    )
+
+    print("\n--- executar_rollback dev (sem chave de API) ---")
+    os.environ.pop("ROLLBACK_API_KEY", None)
+    print(rollback.executar_rollback("dev", "2.0.1", "2.0.0"))
+
+    print("\n--- executar_rollback prod confirmado ---")
+    os.environ["ROLLBACK_API_KEY"] = "rk_example_placeholder"
+    print(
+        rollback.executar_rollback(
+            "prod", "2.0.1", "2.0.0", confirmado=True
         )
     )
 
